@@ -1,34 +1,54 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function PersonList({ persons, updatePerson, deletePerson }) {
   const [editingId, setEditingId] = useState(null);
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
 
   const startEditing = (person) => {
-    setEditingId(person.id);
-    setName(person.name);
-    setAge(person.age);
+    if (!person) {
+      setEditingId(null);
+      setName("");
+      setAge("");
+    } else {
+      setEditingId(person.id);
+      setName(person.name);
+      setAge(person.age);
+    }
   };
 
   const handleUpdate = (e) => {
     e.preventDefault();
     updatePerson({ id: editingId, name, age });
     setEditingId(null);
-    setName('');
-    setAge('');
+    setName("");
+    setAge("");
   };
 
   return (
-    <div>
+    <div className="person-list-container">
       <h2>Person List</h2>
-      <ul>
-        {persons.map(person => (
-          <li key={person.id}>
+      <ul className="person-list">
+        {persons.map((person) => (
+          <li className="person-list-item" key={person.id}>
             {person.name} ({person.age})
-            <button onClick={() => startEditing(person)}>Edit</button>
-            <button onClick={() => deletePerson(person.id)}>Delete</button>
+            <div>
+              <button
+                className="person-list-btn"
+                onClick={() => startEditing(person)}
+              >
+                Edit
+              </button>
+              <button
+                className="person-list-btn"
+                onClick={() => {
+                  startEditing(null);
+                  deletePerson(person.id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

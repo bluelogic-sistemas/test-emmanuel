@@ -1,0 +1,36 @@
+.person-form-container {
+  margin-bottom: 2rem;
+}
+
+.person-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.person-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.person-form-btn {
+  width: 100%;
+}
+
+.person-list {
+  list-style: none;
+}
+
+.person-list-btn {
+  width: 4rem;
+  margin-left: 0.2rem;
+}
+
+.person-list-item {
+  align-items: center;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}

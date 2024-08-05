@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -9,7 +8,9 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link className="link" to="/">
+              Home
+            </Link>
           </li>
         </ul>
       </nav>
